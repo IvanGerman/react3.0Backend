@@ -1,3 +1,5 @@
+// books endpoint is not used in this application
+
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;

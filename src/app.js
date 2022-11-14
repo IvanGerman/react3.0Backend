@@ -19,7 +19,7 @@ app.use(passport.initialize());
 require('./middleware/passport')(passport);
 
 const authRouter = require('./resources/authentication/auth.router');
-const booksRouter = require('./resources/books/books.router');
+//const booksRouter = require('./resources/books/books.router');
 const messagesRouter = require('./resources/messages/messages.router');
 const tokenRouter = require('./resources/token/token.router');
 
@@ -31,7 +31,7 @@ app.use(jsonBodyMiddleware);
 app.use(express.urlencoded());
 
 app.use('/api/auth', authRouter);
-app.use('/api', booksRouter);
+//app.use('/api', booksRouter);
 app.use('/api', messagesRouter);
 app.use('/api', tokenRouter);
 
