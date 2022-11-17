@@ -10,5 +10,6 @@ router.get('/messages', passport.authenticate('jwt', { session: false }), contro
 
 router.post('/messages', passport.authenticate('jwt', { session: false }), controller.postMessage);
 
+router.delete('/messages/:id', passport.authenticate('jwt', { session: false }), controller.deleteMessage);
 
 module.exports = router; 

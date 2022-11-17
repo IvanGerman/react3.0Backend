@@ -28,6 +28,26 @@ module.exports.postMessage = async function(req, res) {
       res.status(400).json({
         message: 'error occured'
       })
-    }
+    } 
+};
+
+
+module.exports.deleteMessage = async function(req, res) {
   
+  try {
+    // check is this message in DB 
+  const isMessageInDB = await Message.findOne({id: req.params.id});
+  if (!isMessageInDB) {
+    res.status(404).json({
+      message: 'this message is not in DB!'
+    })
+  } else { //delete message
+    await Message.deleteOne({ id: req.params.id });
+    res.status(200).json(`${isMessageInDB.id} is deleted`);
+  }
+  } catch(err) {
+    res.status(404).json({
+      message: 'error occured!'
+    })
+  }     
 };
