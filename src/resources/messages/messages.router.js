@@ -12,4 +12,6 @@ router.post('/messages', passport.authenticate('jwt', { session: false }), contr
 
 router.delete('/messages/:id', passport.authenticate('jwt', { session: false }), controller.deleteMessage);
 
+router.put('/messages/:id', passport.authenticate('jwt', { session: false }), controller.updateMessage);
+
 module.exports = router; 

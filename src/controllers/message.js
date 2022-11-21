@@ -20,7 +20,7 @@ module.exports.postMessage = async function(req, res) {
       id: req.body.id,
       message: req.body.message
     });
-
+    console.log('message---',message);
     try {
       await message.save();
       res.status(201).json(message);
@@ -51,3 +51,18 @@ module.exports.deleteMessage = async function(req, res) {
     })
   }     
 };
+
+
+module.exports.updateMessage = async function(req, res) { 
+ 
+  try {
+     const result = await Message.findOneAndUpdate({ id: req.params.id }, { message: req.body.message }, { new: true });
+     res.status(200).json(`Message has been updated, new message is: ${result.message} `);
+     // here we call dispatch function to change state with new/updated message to rerender
+     
+  } catch {
+      res.status(400).json({
+      message: 'error occured'
+      })
+    }
+  };
