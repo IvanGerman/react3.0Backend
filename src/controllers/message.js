@@ -58,8 +58,6 @@ module.exports.updateMessage = async function(req, res) {
   try {
      const result = await Message.findOneAndUpdate({ id: req.params.id }, { message: req.body.message }, { new: true });
      res.status(200).json(`Message has been updated, new message is: ${result.message} `);
-     // here we call dispatch function to change state with new/updated message to rerender
-     
   } catch {
       res.status(400).json({
       message: 'error occured'
