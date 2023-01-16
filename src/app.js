@@ -21,6 +21,7 @@ require('./middleware/passport')(passport);
 const authRouter = require('./resources/authentication/auth.router');
 //const booksRouter = require('./resources/books/books.router');
 const messagesRouter = require('./resources/messages/messages.router');
+const formDataRouter = require('./resources/formData/formData.router');
 const tokenRouter = require('./resources/token/token.router');
 
 
@@ -33,6 +34,7 @@ app.use(express.urlencoded());
 app.use('/api/auth', authRouter);
 //app.use('/api', booksRouter);
 app.use('/api', messagesRouter);
+app.use('/api', formDataRouter);
 app.use('/api', tokenRouter);
 
 
